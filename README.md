@@ -1,1 +1,1 @@
-* 면접 인터뷰 프로젝트
+# Django project : 면접 챗봇AI
