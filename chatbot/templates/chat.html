@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>챗봇</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            margin: 0;
+            padding: 0;
+        }
+        .chat-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-box {
+            height: 400px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        .chat-box .message {
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .chat-box .user {
+            background-color: #d1ecf1;
+            align-self: flex-end;
+        }
+        .chat-box .bot {
+            background-color: #f8d7da;
+            align-self: flex-start;
+        }
+        .chat-input {
+            display: flex;
+        }
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .chat-input button {
+            padding: 10px;
+            margin-left: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .chat-input button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-box" id="chat-box">
+            <!-- 채팅 메시지들이 여기에 추가됩니다. -->
+        </div>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="메시지를 입력하세요..." />
+            <button onclick="sendMessage()">전송</button>
+        </div>
+    </div>
+
+    <script>
+        // 메시지를 화면에 표시하는 함수
+        function appendMessage(text, sender) {
+            const chatBox = document.getElementById('chat-box');
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.classList.add(sender);
+            messageDiv.textContent = text;
+            chatBox.appendChild(messageDiv);
+            chatBox.scrollTop = chatBox.scrollHeight; // 스크롤을 아래로 이동
+        }
+
+        // 사용자 입력 메시지 전송 함수
+        function sendMessage() {
+            const userInput = document.getElementById('user-input');
+            const userMessage = userInput.value.trim();
+            
+            if (userMessage !== '') {
+                // 사용자 메시지 화면에 추가
+                appendMessage(userMessage, 'user');
+                
+                // 입력 필드 초기화
+                userInput.value = '';
+
+                // 챗봇 응답을 기다리면서 잠시 후 봇의 메시지를 추가
+                setTimeout(() = {
+                    getBotResponse(userMessage);
+                }, 1000);
+            }
+        }
+
+        // 챗봇의 응답을 처리하는 함수
+        function getBotResponse(userMessage) {
+            let botMessage = '';
+
+            // 간단한 봇의 응답 예시
+            if (userMessage.includes('안녕하세요')) {
+                botMessage = '안녕하세요! 어떻게 도와드릴까요?';
+            } else if (userMessage.includes('날씨')) {
+                botMessage = '오늘의 날씨는 맑고 기온은 22도입니다.';
+            } else if (userMessage.includes('종료')) {
+                botMessage = '챗봇을 종료합니다. 감사합니다!';
+            } else {
+                botMessage = '저는 그걸 잘 모르겠어요. 다른 질문을 해 주세요.';
+            }
+
+            // 봇의 응답 화면에 추가
+            appendMessage(botMessage, 'bot');
+        }
+    </script>
+</body>
+</html>

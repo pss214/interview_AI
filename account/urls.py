@@ -14,8 +14,13 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import include, path
+# account/urls.py
+from django.urls import path
+from . import views
+
+app_name = 'account'  # 'account'라는 이름공간 설정
 
 urlpatterns = [
+    path('login/', views.login_view, name='login'),  # 로그인 페이지 URL
+    path('signup/', views.signup_view, name='signup'),  # 회원가입 페이지 URL
 ]

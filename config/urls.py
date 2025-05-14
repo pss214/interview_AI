@@ -15,8 +15,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import path, include
+from django.shortcuts import redirect
 
+# 루트 URL을 로그인 페이지로 리디렉션
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path('account/', include('django.contrib.auth.urls')),
+    path('chatbot/', include('chatbot.urls')),
+    ]
