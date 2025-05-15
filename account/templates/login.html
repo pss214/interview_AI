@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #e0c3fc, #8ec5fc); /* 파스텔톤 배경 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+            color: #7b68ee; /* 라벤더 */
+            font-size: 32px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-size: 16px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+            color: #666;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9ff;
+        }
+
+        .form-group input:focus {
+            border-color: #b39ddb;
+            outline: none;
+            background-color: #fff;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            background-color: #a5b4fc; /* 연파랑 */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-group button:hover {
+            background-color: #c4b5fd; /* 밝은 연보라 */
+        }
+
+        .messages {
+            margin-bottom: 20px;
+        }
+
+        .messages li {
+            color: #e57373;
+            font-size: 14px;
+            list-style-type: none;
+        }
+
+        .link {
+            display: block;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .link a {
+            color: #7b68ee;
+            text-decoration: none;
+        }
+
+        .link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>로그인</h2>
+
+        {% if messages %}
+            <div class="messages">
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="email">이메일</label>
+                <input type="text" name="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">비밀번호</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">로그인</button>
+            </div>
+        </form>
+
+        <div class="link">
+            <a href="{% url 'signup' %}">회원가입</a>
+        </div>
+    </div>
+
+</body>
+</html>

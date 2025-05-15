@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #fbc2eb, #a6c1ee); /* 파스텔 배경 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #a678f0;
+            margin-bottom: 30px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            text-align: left;
+            color: #555;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9ff;
+        }
+
+        input:focus {
+            border-color: #a678f0;
+            outline: none;
+            background-color: #ffffff;
+        }
+
+        button {
+            padding: 12px;
+            font-size: 16px;
+            background-color: #a6c1ee;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #c3dafe;
+        }
+
+        .messages {
+            margin-bottom: 15px;
+            color: #e57373;
+            font-size: 14px;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            color: #7e57c2;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>회원가입</h2>
+        
+        {% if messages %}
+            <div class="messages">
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            <label for="email">이메일</label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="password">비밀번호</label>
+            <input type="password" name="password" id="password" required>
+
+            <label for="password_confirm">비밀번호 확인</label>
+            <input type="password" name="password_confirm" id="password_confirm" required>
+
+            <button type="submit">회원가입</button>
+        </form>
+
+        <a href="{% url 'login' %}">로그인</a>
+    </div>
+
+</body>
+</html>
