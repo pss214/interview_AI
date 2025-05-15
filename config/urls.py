@@ -16,11 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.shortcuts import redirect
+from django.http import HttpResponse
 
-# 루트 URL을 로그인 페이지로 리디렉션
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('account/', include('django.contrib.auth.urls')),
-    path('chatbot/', include('chatbot.urls')),
-    ]
+    path('account/', include('account.urls')),
+    path('', include('chatbot.urls')),
+]

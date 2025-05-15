@@ -6,7 +6,6 @@
     <title>로그인</title>
 
     <style>
-        /* 기본적인 스타일 초기화 */
         * {
             margin: 0;
             padding: 0;
@@ -15,7 +14,7 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to right, #6a11cb, #2575fc); /* 그라데이션 배경 */
+            background: linear-gradient(to right, #e0c3fc, #8ec5fc); /* 파스텔톤 배경 */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -25,15 +24,15 @@
         .container {
             background-color: white;
             padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             width: 400px;
             text-align: center;
         }
 
         h2 {
             margin-bottom: 30px;
-            color: #2575fc;
+            color: #7b68ee; /* 라벤더 */
             font-size: 32px;
         }
 
@@ -47,36 +46,38 @@
             font-weight: bold;
             display: block;
             margin-bottom: 8px;
+            color: #666;
         }
 
         .form-group input {
             width: 100%;
             padding: 10px;
             font-size: 16px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9ff;
         }
 
         .form-group input:focus {
-            border-color: #2575fc;
+            border-color: #b39ddb;
             outline: none;
+            background-color: #fff;
         }
 
         .form-group button {
             width: 100%;
             padding: 12px;
             font-size: 18px;
-            background-color: #2575fc;
+            background-color: #a5b4fc; /* 연파랑 */
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
 
         .form-group button:hover {
-            background-color: #6a11cb;
+            background-color: #c4b5fd; /* 밝은 연보라 */
         }
 
         .messages {
@@ -84,7 +85,7 @@
         }
 
         .messages li {
-            color: red;
+            color: #e57373;
             font-size: 14px;
             list-style-type: none;
         }
@@ -96,7 +97,7 @@
         }
 
         .link a {
-            color: #2575fc;
+            color: #7b68ee;
             text-decoration: none;
         }
 
@@ -109,7 +110,7 @@
 
     <div class="container">
         <h2>로그인</h2>
-        
+
         {% if messages %}
             <div class="messages">
                 <ul>
@@ -123,8 +124,8 @@
         <form method="post">
             {% csrf_token %}
             <div class="form-group">
-                <label for="username">아이디</label>
-                <input type="text" name="username" id="username" required>
+                <label for="email">이메일</label>
+                <input type="text" name="email" id="email" required>
             </div>
             <div class="form-group">
                 <label for="password">비밀번호</label>
@@ -136,7 +137,7 @@
         </form>
 
         <div class="link">
-            <a href="{% url 'signup' %}">회원가입 페이지로 가기</a>
+            <a href="{% url 'signup' %}">회원가입</a>
         </div>
     </div>
 
