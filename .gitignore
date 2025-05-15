@@ -3,6 +3,8 @@
 *.pyc
 account/__pycache__/
 chatbot/__pycache__/
+account/migrations/
+chatbot/migrations/
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
