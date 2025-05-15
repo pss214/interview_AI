@@ -66,4 +66,6 @@ def signup_view(request):
 # 로그아웃 뷰
 def logout_view(request):
     logout(request)
-    return redirect('chatbot:index')
+    return redirect('account:index')
+def index(request):
+    return render(request,'main.html')

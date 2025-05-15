@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>interview_AI 메인</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at center, #000428, #004e92);
+      color: white;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    h1 {
+      font-size: 60px;
+      font-weight: bold;
+      color: #80bfff;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .disabled-button {
+      background-color: white;
+      color: #003366;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      opacity: 0.7;
+      cursor: default;
+    }
+
+    a.link {
+      color: #b3d1ff;
+      margin-top: 30px;
+      display: block;
+      font-size: 16px;
+      text-decoration: none;
+    }
+
+    a.link:hover {
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+  <h2>AI와 함께하는 실전 면접 연습</h2>
+  <h1>interview_AI</h1>
+
+  <div class="button-container">
+    <button class="disabled-button" disabled>연습도 실전처럼</button>
+    <button class="disabled-button" disabled>면접예상 적중질문</button>
+  </div>
+
+  <!-- 텍스트 링크 -->
+  <a href="{% url 'chatbot:index' %}" class="link">AI 챗봇으로 가기</a>
+</body>
+</html>

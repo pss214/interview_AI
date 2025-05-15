@@ -108,10 +108,10 @@
 <body>
     <!-- 로그인/로그아웃 버튼 -->
     {% if user.is_authenticated %}
-        <button class="login-btn" onclick="window.location.href='{% url 'logout' %}'">로그아웃</button>
+        <button class="login-btn" onclick="window.location.href='{% url 'account:logout' %}'">로그아웃</button>
         <button id="save-chat-btn" class="login-btn">저장</button>
     {% else %}
-        <button class="login-btn" onclick="window.location.href='{% url 'login' %}'">로그인</button>
+        <button class="login-btn" onclick="window.location.href='{% url 'account:login' %}'">로그인</button>
     {% endif %}
 
     <div class="chat-container">
