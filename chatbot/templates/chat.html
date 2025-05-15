@@ -1,218 +1,240 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>챗봇</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f1f1f1;
-            margin: 0;
-            padding: 0;
-        }
-        .chat-container {
-            width: 100%;
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-        }
-        .chat-box {
-            height: 400px;
-            overflow-y: auto;
-            margin-bottom: 20px;
-            padding: 10px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-        }
-        .chat-box .message {
-            padding: 8px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            word-wrap: break-word;     /* 오래된 브라우저 호환 */
-            word-break: break-word;    /* 단어 중간에서 줄바꿈 */
-            overflow-wrap: break-word; /* 최신 브라우저 호환 */
-            max-width: 100%;            /* 필요 시 말풍선의 최대 너비 제한 */
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>챗봇</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at center, #000428, #004e92);
+      color: white;
+      font-family: 'Noto Sans KR', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
 
-        .chat-box .user {
-            background-color: #d1ecf1;
-            align-self: flex-end;
-        }
-        .chat-box .bot {
-            background-color: #f8d7da;
-            align-self: flex-start;
-        }
-        .chat-input {
-            display: flex;
-        }
-        .chat-input textarea {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-            resize: vertical; /* 사용자가 세로로 늘릴 수 있게 */
-            min-height: 50px;
-            max-height: 200px;
-            line-height: 1.4;
-        }
-        .chat-input button {
-            padding: 10px;
-            margin-left: 10px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .chat-input button:hover {
-            background-color: #0056b3;
-        }
+    .chat-container {
+      width: 100%;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+    }
 
-        .login-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
+    .chat-box {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      height: 400px;
+      overflow-y: auto;
+      margin-bottom: 20px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
 
-        .login-btn:hover {
-            background-color: #0056b3;
-        }
+    .chat-box .message {
+      padding: 12px 18px;
+      max-width: 70%;
+      border-radius: 16px;
+      font-size: 16px;
+      line-height: 1.5;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      word-wrap: break-word;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
 
-        #save-chat-btn {
-            position: fixed;
-            top: 70px; /* 로그인 버튼과 간격 확보 */
-            right: 20px;
-            background-color: #007bff;
-        }
+    .chat-box .user {
+      background-color: #5D9CEC;
+      color: #fff;
+      align-self: flex-end;
+      border-bottom-right-radius: 0;
+    }
 
-        #save-chat-btn:hover {
-        background-color: #0056b3;
-        } 
-    </style>
+    .chat-box .bot {
+      background-color: #FFB6C1;
+      color: #000;
+      align-self: flex-start;
+      border-bottom-left-radius: 0;
+    }
+
+    .chat-input {
+      display: flex;
+    }
+
+    .chat-input textarea {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+      resize: vertical;
+      min-height: 50px;
+      max-height: 200px;
+      line-height: 1.4;
+    }
+
+    .chat-input button {
+      padding: 10px;
+      margin-left: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .chat-input button:hover {
+      background-color: #0056b3;
+    }
+
+    .login-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .login-btn:hover {
+      background-color: #0056b3;
+    }
+
+    #save-chat-btn {
+      position: fixed;
+      top: 70px;
+      right: 20px;
+      background-color: #007bff;
+    }
+
+    #save-chat-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
-    <!-- 로그인/로그아웃 버튼 -->
-    {% if user.is_authenticated %}
-        <button class="login-btn" onclick="window.location.href='{% url 'account:logout' %}'">로그아웃</button>
-        <button id="save-chat-btn" class="login-btn">저장</button>
-    {% else %}
-        <button class="login-btn" onclick="window.location.href='{% url 'account:login' %}'">로그인</button>
-    {% endif %}
 
-    <div class="chat-container">
-        <div class="chat-box" id="chat-box"></div>
-        <div class="chat-input">
-            <textarea id="user-input" placeholder="메시지를 입력하세요..." /></textarea>
-            <button onclick="sendMessage()">전송</button>
-        </div>
+  {% if user.is_authenticated %}
+    <button class="login-btn" onclick="window.location.href='{% url 'account:logout' %}'">로그아웃</button>
+    <button id="save-chat-btn" class="login-btn">저장</button>
+  {% else %}
+    <button class="login-btn" onclick="window.location.href='{% url 'account:login' %}'">로그인</button>
+  {% endif %}
+
+  <div class="chat-container">
+    <div class="chat-box" id="chat-box"></div>
+    <div class="chat-input">
+      <textarea id="user-input" placeholder="메시지를 입력하세요..."></textarea>
+      <button onclick="sendMessage()">전송</button>
     </div>
+  </div>
 
-    <script>
-        function appendMessage(text, sender) {
-            const chatBox = document.getElementById('chat-box');
-            const messageDiv = document.createElement('div');
-            messageDiv.classList.add('message', sender);
-            messageDiv.textContent = text;
-            chatBox.appendChild(messageDiv);
-            chatBox.scrollTop = chatBox.scrollHeight;
+  <script>
+    function appendMessage(text, sender) {
+      const chatBox = document.getElementById('chat-box');
+      const messageDiv = document.createElement('div');
+      messageDiv.classList.add('message', sender);
+      messageDiv.textContent = text;
+      chatBox.appendChild(messageDiv);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function sendMessage() {
+      const userInput = document.getElementById('user-input');
+      const userMessage = userInput.value.trim();
+      if (userMessage !== '') {
+        appendMessage(userMessage, 'user');
+        userInput.value = '';
+        setTimeout(() => {
+          getBotResponse(userMessage);
+        }, 1000);
+      }
+    }
+
+    function getBotResponse(userMessage) {
+      let botMessage = '';
+      if (userMessage.includes('안녕하세요')) {
+        botMessage = '안녕하세요! 어떻게 도와드릴까요?';
+      } else if (userMessage.includes('날씨')) {
+        botMessage = '오늘의 날씨는 맑고 기온은 22도입니다.';
+      } else if (userMessage.includes('종료')) {
+        botMessage = '챗봇을 종료합니다. 감사합니다!';
+      } else {
+        botMessage = '저는 그걸 잘 모르겠어요. 다른 질문을 해 주세요.';
+      }
+      appendMessage(botMessage, 'bot');
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const inputField = document.getElementById('user-input');
+      inputField.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          sendMessage();
         }
+      });
 
-        function sendMessage() {
-            const userInput = document.getElementById('user-input');
-            const userMessage = userInput.value.trim();
-            if (userMessage !== '') {
-                appendMessage(userMessage, 'user');
-                userInput.value = '';
-                setTimeout(() => {
-                    getBotResponse(userMessage);
-                }, 1000);
-            }
-        }
+      const saveBtn = document.getElementById('save-chat-btn');
+      if (saveBtn) {
+        saveBtn.addEventListener('click', saveChatHistory);
+      }
+    });
 
-        function getBotResponse(userMessage) {
-            let botMessage = '';
-            if (userMessage.includes('안녕하세요')) {
-                botMessage = '안녕하세요! 어떻게 도와드릴까요?';
-            } else if (userMessage.includes('날씨')) {
-                botMessage = '오늘의 날씨는 맑고 기온은 22도입니다.';
-            } else if (userMessage.includes('종료')) {
-                botMessage = '챗봇을 종료합니다. 감사합니다!';
-            } else {
-                botMessage = '저는 그걸 잘 모르겠어요. 다른 질문을 해 주세요.';
-            }
-            appendMessage(botMessage, 'bot');
-        }
+    function saveChatHistory() {
+      const chatBox = document.getElementById('chat-box');
+      const messages = chatBox.querySelectorAll('.message');
+      const chatData = [];
 
-            // 엔터 키로도 메시지 전송 가능하게
-        document.addEventListener('DOMContentLoaded', function () {
-            const inputField = document.getElementById('user-input');
-            inputField.addEventListener('keydown', function (event) {
-                if (event.key === 'Enter') {
-                    event.preventDefault();
-                    sendMessage();
-                }
-            });
+      messages.forEach(msg => {
+        chatData.push({
+          sender: msg.classList.contains('user') ? 'user' : 'bot',
+          message: msg.textContent
         });
+      });
 
-         const saveBtn = document.getElementById('save-chat-btn');
-            if (saveBtn) {
-                saveBtn.addEventListener('click', saveChatHistory);
-            };
+      fetch('/save_message/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': getCookie('csrftoken')
+        },
+        body: JSON.stringify({ messages: chatData })
+      })
+      .then(res => res.json())
+      .then(data => alert('채팅이 저장되었습니다.'))
+      .catch(err => alert('저장 실패: ' + err));
+    }
 
-        function saveChatHistory() {
-            const chatBox = document.getElementById('chat-box');
-            const messages = chatBox.querySelectorAll('.message');
-            const chatData = [];
-
-            messages.forEach(msg => {
-                chatData.push({
-                    sender: msg.classList.contains('user') ? 'user' : 'bot',
-                    message: msg.textContent
-                });
-            });
-
-            fetch('/save_message/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': getCookie('csrftoken')
-                },
-                body: JSON.stringify({ messages: chatData })
-            })
-            .then(res => res.json())
-            .then(data => alert('채팅이 저장되었습니다.'))
-            .catch(err => alert('저장 실패: ' + err));
+    function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
         }
-
-        function getCookie(name) {
-            let cookieValue = null;
-            if (document.cookie && document.cookie !== '') {
-                const cookies = document.cookie.split(';');
-                for (let i = 0; i < cookies.length; i++) {
-                    const cookie = cookies[i].trim();
-                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                        break;
-                    }
-                }
-            }
-            return cookieValue;
-        }
-    </script>
+      }
+      return cookieValue;
+    }
+  </script>
 </body>
 </html>
