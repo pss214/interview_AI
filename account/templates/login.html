@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -14,43 +15,54 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to right, #e0c3fc, #8ec5fc); /* 파스텔톤 배경 */
+            background: radial-gradient(circle at center, #000428, #004e92);
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 100vh
         }
 
         .container {
             background-color: white;
             padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            width: 400px;
-            text-align: center;
+            box-shadow: 0 4px 10px #004e92;
+            width: 500px;
         }
+
+        .logo {
+            width: 40px;
+            margin-bottom: 20px;
+        }
+        .logo-img {
+         width: 40px;  /* 원하는 크기로 조절 */
+         height: auto;
+     }
 
         h2 {
             margin-bottom: 30px;
-            color: #7b68ee; /* 라벤더 */
-            font-size: 32px;
-        }
+            color: #0056b3;
+            text-align: center;
+        } 
 
         .form-group {
             margin-bottom: 20px;
-            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .form-group label {
+            width: 80%;
+            text-align: left;
             font-size: 16px;
             font-weight: bold;
-            display: block;
             margin-bottom: 8px;
             color: #666;
         }
 
         .form-group input {
-            width: 100%;
+            width: 80%;
             padding: 10px;
             font-size: 16px;
             border: 1px solid #ccc;
@@ -59,7 +71,7 @@
         }
 
         .form-group input:focus {
-            border-color: #b39ddb;
+            border-color: #0056b3;
             outline: none;
             background-color: #fff;
         }
@@ -68,7 +80,7 @@
             width: 100%;
             padding: 12px;
             font-size: 18px;
-            background-color: #a5b4fc; /* 연파랑 */
+            background-color: #0056b3;
             color: white;
             border: none;
             border-radius: 8px;
@@ -77,7 +89,7 @@
         }
 
         .form-group button:hover {
-            background-color: #c4b5fd; /* 밝은 연보라 */
+            background-color: #004999;
         }
 
         .messages {
@@ -85,7 +97,7 @@
         }
 
         .messages li {
-            color:rgb(255, 129, 158);
+            color: #0056b3;
             font-size: 14px;
             list-style-type: none;
         }
@@ -94,11 +106,13 @@
             display: block;
             margin-top: 20px;
             font-size: 14px;
+            text-align: center;
         }
 
         .link a {
-            color: #7b68ee;
+            color: #0056b3;
             text-decoration: none;
+            text-align: center;
         }
 
         .link a:hover {
@@ -107,18 +121,20 @@
     </style>
 </head>
 <body>
-
+    <div class="login-box">
     <div class="container">
+        <img src="/static/image/logo.png" alt="Logo" width="160" height="auto">
+
         <h2>로그인</h2>
 
         {% if messages %}
-            <div class="messages">
-                <ul>
-                    {% for message in messages %}
-                        <li>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
+        <div class="messages">
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
         {% endif %}
 
         <form method="post">
