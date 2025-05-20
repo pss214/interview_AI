@@ -1,0 +1,180 @@
+{
+    "TabMenu": [
+        {
+            "BizJobtype_Code": 1000243,
+            "BizJobtype_Name": "블록체인개발자"
+        }
+    ],
+    "SkillList": [
+        {
+            "BizJobtype_Code": 1000243,
+            "Skill": [
+                {
+                    "Skill_Code": 1000427,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Ethereum"
+                },
+                {
+                    "Skill_Code": 31,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "대처능력"
+                },
+                {
+                    "Skill_Code": 1000603,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Slack"
+                },
+                {
+                    "Skill_Code": 1000040,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "GoLang"
+                },
+                {
+                    "Skill_Code": 42,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "분석력"
+                },
+                {
+                    "Skill_Code": 63,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "실행력"
+                },
+                {
+                    "Skill_Code": 25,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "네트워킹"
+                },
+                {
+                    "Skill_Code": 1000098,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Python"
+                },
+                {
+                    "Skill_Code": 1000445,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "GitHub"
+                },
+                {
+                    "Skill_Code": 1000593,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "SCJP 자격"
+                },
+                {
+                    "Skill_Code": 1000018,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "C#"
+                },
+                {
+                    "Skill_Code": 22,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "기획력"
+                },
+                {
+                    "Skill_Code": 1000245,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Rust"
+                },
+                {
+                    "Skill_Code": 1000448,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Go"
+                },
+                {
+                    "Skill_Code": 1000081,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Node.js"
+                },
+                {
+                    "Skill_Code": 58,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "습득력"
+                },
+                {
+                    "Skill_Code": 1000118,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Solidity"
+                },
+                {
+                    "Skill_Code": 1000019,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "C++"
+                },
+                {
+                    "Skill_Code": 23,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "끈기"
+                },
+                {
+                    "Skill_Code": 1000055,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "JAVA"
+                },
+                {
+                    "Skill_Code": 85,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "자기개발"
+                },
+                {
+                    "Skill_Code": 129,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "호기심"
+                },
+                {
+                    "Skill_Code": 144,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "사고력"
+                },
+                {
+                    "Skill_Code": 78,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "응용력"
+                },
+                {
+                    "Skill_Code": 125,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "협동심"
+                },
+                {
+                    "Skill_Code": 152,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "전문성"
+                },
+                {
+                    "Skill_Code": 109,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "진취성"
+                },
+                {
+                    "Skill_Code": 155,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "체계성"
+                },
+                {
+                    "Skill_Code": 159,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "탐구력"
+                },
+                {
+                    "Skill_Code": 140,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "명확성"
+                },
+                {
+                    "Skill_Code": 87,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "자기주도"
+                },
+                {
+                    "Skill_Code": 111,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "집중력"
+                },
+                {
+                    "Skill_Code": 117,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "통찰력"
+                }
+            ]
+        }
+    ]
+}

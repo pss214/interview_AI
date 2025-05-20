@@ -1,0 +1,455 @@
+{
+    "TabMenu": [
+        {
+            "BizJobtype_Code": 1000237,
+            "BizJobtype_Name": "데이터사이언티스트"
+        }
+    ],
+    "SkillList": [
+        {
+            "BizJobtype_Code": 1000237,
+            "Skill": [
+                {
+                    "Skill_Code": 1000124,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "SQL"
+                },
+                {
+                    "Skill_Code": 1000098,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Python"
+                },
+                {
+                    "Skill_Code": 1000102,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "R"
+                },
+                {
+                    "Skill_Code": 1000131,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Tensorflow"
+                },
+                {
+                    "Skill_Code": 27,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "논리적"
+                },
+                {
+                    "Skill_Code": 1000352,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "BigQuery"
+                },
+                {
+                    "Skill_Code": 1000014,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "AWS"
+                },
+                {
+                    "Skill_Code": 1000082,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "NoSQL"
+                },
+                {
+                    "Skill_Code": 1000513,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Microsoft SQL Server"
+                },
+                {
+                    "Skill_Code": 33,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "도전정신"
+                },
+                {
+                    "Skill_Code": 1000319,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Airflow"
+                },
+                {
+                    "Skill_Code": 1000041,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Google Analytics"
+                },
+                {
+                    "Skill_Code": 1000090,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Pandas"
+                },
+                {
+                    "Skill_Code": 1000064,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Keras"
+                },
+                {
+                    "Skill_Code": 26,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "노력"
+                },
+                {
+                    "Skill_Code": 1000428,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "ETL"
+                },
+                {
+                    "Skill_Code": 1000243,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Hive"
+                },
+                {
+                    "Skill_Code": 1000099,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Pytorch"
+                },
+                {
+                    "Skill_Code": 1000120,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Spark"
+                },
+                {
+                    "Skill_Code": 20,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "긍정적"
+                },
+                {
+                    "Skill_Code": 1000015,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Azure"
+                },
+                {
+                    "Skill_Code": 1000407,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "DL"
+                },
+                {
+                    "Skill_Code": 1000540,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "OLAP"
+                },
+                {
+                    "Skill_Code": 1000583,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "RPA"
+                },
+                {
+                    "Skill_Code": 50,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "성실성"
+                },
+                {
+                    "Skill_Code": 1000521,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "MSTR"
+                },
+                {
+                    "Skill_Code": 1000536,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Numpy"
+                },
+                {
+                    "Skill_Code": 1000244,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Presto"
+                },
+                {
+                    "Skill_Code": 1000532,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "NLU"
+                },
+                {
+                    "Skill_Code": 40,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "문제해결능력"
+                },
+                {
+                    "Skill_Code": 1000448,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Go"
+                },
+                {
+                    "Skill_Code": 1000504,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Matplotlib"
+                },
+                {
+                    "Skill_Code": 1000412,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "DW"
+                },
+                {
+                    "Skill_Code": 1000358,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "CAE"
+                },
+                {
+                    "Skill_Code": 53,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "의사소통"
+                },
+                {
+                    "Skill_Code": 1000597,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Selenium"
+                },
+                {
+                    "Skill_Code": 1000348,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "AWS Redshift"
+                },
+                {
+                    "Skill_Code": 1000326,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Amplitude"
+                },
+                {
+                    "Skill_Code": 1000495,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Kibana"
+                },
+                {
+                    "Skill_Code": 36,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "리더십"
+                },
+                {
+                    "Skill_Code": 1000592,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Scikit-Learn"
+                },
+                {
+                    "Skill_Code": 1000580,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "RedHat Software"
+                },
+                {
+                    "Skill_Code": 1000402,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "DBMS"
+                },
+                {
+                    "Skill_Code": 1000596,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Seaborn"
+                },
+                {
+                    "Skill_Code": 90,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "자율성"
+                },
+                {
+                    "Skill_Code": 1000345,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "AWS Athena"
+                },
+                {
+                    "Skill_Code": 1000399,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "CX"
+                },
+                {
+                    "Skill_Code": 1000380,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Cloud"
+                },
+                {
+                    "Skill_Code": 1000654,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "VMware"
+                },
+                {
+                    "Skill_Code": 76,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "윤리의식"
+                },
+                {
+                    "Skill_Code": 1000331,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Apache Impala"
+                },
+                {
+                    "Skill_Code": 1000611,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Spotfire"
+                },
+                {
+                    "Skill_Code": 1000349,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "AWS S3"
+                },
+                {
+                    "Skill_Code": 1000114,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Scipy"
+                },
+                {
+                    "Skill_Code": 85,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "자기개발"
+                },
+                {
+                    "Skill_Code": 1000401,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "DataStage"
+                },
+                {
+                    "Skill_Code": 1000510,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "MES"
+                },
+                {
+                    "Skill_Code": 1000620,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "SVM"
+                },
+                {
+                    "Skill_Code": 1000616,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Sqoop"
+                },
+                {
+                    "Skill_Code": 82,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "이해력"
+                },
+                {
+                    "Skill_Code": 1000853,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "정보처리기사 자격"
+                },
+                {
+                    "Skill_Code": 1000512,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Microsoft Office"
+                },
+                {
+                    "Skill_Code": 1000747,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "사회조사분석사 자격"
+                },
+                {
+                    "Skill_Code": 1000314,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "ADsP 자격"
+                },
+                {
+                    "Skill_Code": 124,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "혁신성"
+                },
+                {
+                    "Skill_Code": 1000615,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "SQLD 자격"
+                },
+                {
+                    "Skill_Code": 1000880,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "컴퓨터활용능력"
+                },
+                {
+                    "Skill_Code": 1000497,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Konlpy"
+                },
+                {
+                    "Skill_Code": 1000443,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "GAN"
+                },
+                {
+                    "Skill_Code": 118,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "팀워크"
+                },
+                {
+                    "Skill_Code": 1000383,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "CNN"
+                },
+                {
+                    "Skill_Code": 1000088,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "OSS"
+                },
+                {
+                    "Skill_Code": 1000113,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Scala"
+                },
+                {
+                    "Skill_Code": 1001042,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "PyCharm"
+                },
+                {
+                    "Skill_Code": 113,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "책임감"
+                },
+                {
+                    "Skill_Code": 1000125,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "SQLite"
+                },
+                {
+                    "Skill_Code": 1000045,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Hadoop"
+                },
+                {
+                    "Skill_Code": 1000084,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "OpenCV"
+                },
+                {
+                    "Skill_Code": 1000397,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "CUDA"
+                },
+                {
+                    "Skill_Code": 92,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "적극성"
+                },
+                {
+                    "Skill_Code": 149,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "자기성찰"
+                },
+                {
+                    "Skill_Code": 1000541,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Openstack"
+                },
+                {
+                    "Skill_Code": 1000068,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Logstash"
+                },
+                {
+                    "Skill_Code": 161,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "학습능력"
+                },
+                {
+                    "Skill_Code": 1000182,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Tableau"
+                },
+                {
+                    "Skill_Code": 125,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "협동심"
+                },
+                {
+                    "Skill_Code": 130,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "효율성"
+                },
+                {
+                    "Skill_Code": 151,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "전략적"
+                }
+            ]
+        }
+    ]
+}

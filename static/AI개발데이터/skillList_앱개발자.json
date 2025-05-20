@@ -1,0 +1,595 @@
+{
+    "TabMenu": [
+        {
+            "BizJobtype_Code": 1000232,
+            "BizJobtype_Name": "앱개발자"
+        }
+    ],
+    "SkillList": [
+        {
+            "BizJobtype_Code": 1000232,
+            "Skill": [
+                {
+                    "Skill_Code": 1000055,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "JAVA"
+                },
+                {
+                    "Skill_Code": 1000129,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Swift"
+                },
+                {
+                    "Skill_Code": 1000065,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Kotlin"
+                },
+                {
+                    "Skill_Code": 1000005,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Android"
+                },
+                {
+                    "Skill_Code": 10,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "계획성"
+                },
+                {
+                    "Skill_Code": 1000039,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Git"
+                },
+                {
+                    "Skill_Code": 1000523,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "MVVM"
+                },
+                {
+                    "Skill_Code": 1000056,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Javascript"
+                },
+                {
+                    "Skill_Code": 1000054,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "iOS"
+                },
+                {
+                    "Skill_Code": 11,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "고객응대"
+                },
+                {
+                    "Skill_Code": 1000083,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Objective-C"
+                },
+                {
+                    "Skill_Code": 1000009,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "API"
+                },
+                {
+                    "Skill_Code": 1000510,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "MES"
+                },
+                {
+                    "Skill_Code": 1000603,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Slack"
+                },
+                {
+                    "Skill_Code": 13,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "고객지향성"
+                },
+                {
+                    "Skill_Code": 1000513,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Microsoft SQL Server"
+                },
+                {
+                    "Skill_Code": 1000583,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "RPA"
+                },
+                {
+                    "Skill_Code": 1000445,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "GitHub"
+                },
+                {
+                    "Skill_Code": 1000448,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Go"
+                },
+                {
+                    "Skill_Code": 14,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "공감능력"
+                },
+                {
+                    "Skill_Code": 1000849,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "전자정부표준프레임워크"
+                },
+                {
+                    "Skill_Code": 1000217,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Android Studio"
+                },
+                {
+                    "Skill_Code": 1000492,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "JSON"
+                },
+                {
+                    "Skill_Code": 1000109,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "RestAPI"
+                },
+                {
+                    "Skill_Code": 25,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "네트워킹"
+                },
+                {
+                    "Skill_Code": 1000659,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "WebLogic"
+                },
+                {
+                    "Skill_Code": 1000528,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Next.js"
+                },
+                {
+                    "Skill_Code": 1000402,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "DBMS"
+                },
+                {
+                    "Skill_Code": 1000229,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "RxJava"
+                },
+                {
+                    "Skill_Code": 23,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "끈기"
+                },
+                {
+                    "Skill_Code": 1000321,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "ALM"
+                },
+                {
+                    "Skill_Code": 1000527,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Nexacro"
+                },
+                {
+                    "Skill_Code": 1000380,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Cloud"
+                },
+                {
+                    "Skill_Code": 1000041,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Google Analytics"
+                },
+                {
+                    "Skill_Code": 15,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "공정성"
+                },
+                {
+                    "Skill_Code": 1000218,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "RxAndroid"
+                },
+                {
+                    "Skill_Code": 1000512,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Microsoft Office"
+                },
+                {
+                    "Skill_Code": 1000150,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "WebRTC"
+                },
+                {
+                    "Skill_Code": 1001023,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "MQTT"
+                },
+                {
+                    "Skill_Code": 20,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "긍정적"
+                },
+                {
+                    "Skill_Code": 1000088,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "OSS"
+                },
+                {
+                    "Skill_Code": 1001025,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Netty"
+                },
+                {
+                    "Skill_Code": 1001054,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "SDK"
+                },
+                {
+                    "Skill_Code": 1000118,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Solidity"
+                },
+                {
+                    "Skill_Code": 28,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "능동적"
+                },
+                {
+                    "Skill_Code": 1000494,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "JWT"
+                },
+                {
+                    "Skill_Code": 1000454,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "GUI"
+                },
+                {
+                    "Skill_Code": 1001073,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "WinForm"
+                },
+                {
+                    "Skill_Code": 1000165,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "풀스택"
+                },
+                {
+                    "Skill_Code": 27,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "논리적"
+                },
+                {
+                    "Skill_Code": 1000085,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "OpenGL"
+                },
+                {
+                    "Skill_Code": 1001032,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "OOP"
+                },
+                {
+                    "Skill_Code": 1000655,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "VSCode"
+                },
+                {
+                    "Skill_Code": 1000013,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "ASP.NET"
+                },
+                {
+                    "Skill_Code": 26,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "노력"
+                },
+                {
+                    "Skill_Code": 1001010,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "JNI"
+                },
+                {
+                    "Skill_Code": 1000245,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Rust"
+                },
+                {
+                    "Skill_Code": 1000074,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "MFC"
+                },
+                {
+                    "Skill_Code": 1001062,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "TDD"
+                },
+                {
+                    "Skill_Code": 30,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "대인관계"
+                },
+                {
+                    "Skill_Code": 50,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "성실성"
+                },
+                {
+                    "Skill_Code": 46,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "상상력"
+                },
+                {
+                    "Skill_Code": 53,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "의사소통"
+                },
+                {
+                    "Skill_Code": 41,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "배려심"
+                },
+                {
+                    "Skill_Code": 43,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "사교성"
+                },
+                {
+                    "Skill_Code": 51,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "성취지향성"
+                },
+                {
+                    "Skill_Code": 1000142,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Visual Studio"
+                },
+                {
+                    "Skill_Code": 1000539,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "OCR"
+                },
+                {
+                    "Skill_Code": 1000111,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "SaaS"
+                },
+                {
+                    "Skill_Code": 1001074,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Xamarin"
+                },
+                {
+                    "Skill_Code": 60,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "신뢰성"
+                },
+                {
+                    "Skill_Code": 40,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "문제해결능력"
+                },
+                {
+                    "Skill_Code": 55,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "수용력"
+                },
+                {
+                    "Skill_Code": 1000996,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "HTTP"
+                },
+                {
+                    "Skill_Code": 1000000,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": ".Net"
+                },
+                {
+                    "Skill_Code": 31,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "대처능력"
+                },
+                {
+                    "Skill_Code": 1000037,
+                    "Skill_Type_Code": 1,
+                    "Skill_Name": "Flutter"
+                },
+                {
+                    "Skill_Code": 33,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "도전정신"
+                },
+                {
+                    "Skill_Code": 34,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "독립성"
+                },
+                {
+                    "Skill_Code": 36,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "리더십"
+                },
+                {
+                    "Skill_Code": 92,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "적극성"
+                },
+                {
+                    "Skill_Code": 78,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "응용력"
+                },
+                {
+                    "Skill_Code": 96,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "정리능력"
+                },
+                {
+                    "Skill_Code": 93,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "적응성"
+                },
+                {
+                    "Skill_Code": 113,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "책임감"
+                },
+                {
+                    "Skill_Code": 90,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "자율성"
+                },
+                {
+                    "Skill_Code": 98,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "정직성"
+                },
+                {
+                    "Skill_Code": 68,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "예의범절"
+                },
+                {
+                    "Skill_Code": 89,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "자신감"
+                },
+                {
+                    "Skill_Code": 85,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "자기개발"
+                },
+                {
+                    "Skill_Code": 99,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "정확성"
+                },
+                {
+                    "Skill_Code": 111,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "집중력"
+                },
+                {
+                    "Skill_Code": 66,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "열정"
+                },
+                {
+                    "Skill_Code": 105,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "주인의식"
+                },
+                {
+                    "Skill_Code": 88,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "자발적"
+                },
+                {
+                    "Skill_Code": 109,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "진취성"
+                },
+                {
+                    "Skill_Code": 82,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "이해력"
+                },
+                {
+                    "Skill_Code": 112,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "창의성"
+                },
+                {
+                    "Skill_Code": 76,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "윤리의식"
+                },
+                {
+                    "Skill_Code": 75,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "유연함"
+                },
+                {
+                    "Skill_Code": 114,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "체력관리"
+                },
+                {
+                    "Skill_Code": 161,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "학습능력"
+                },
+                {
+                    "Skill_Code": 125,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "협동심"
+                },
+                {
+                    "Skill_Code": 149,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "자기성찰"
+                },
+                {
+                    "Skill_Code": 124,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "혁신성"
+                },
+                {
+                    "Skill_Code": 142,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "민첩성"
+                },
+                {
+                    "Skill_Code": 135,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "감성적"
+                },
+                {
+                    "Skill_Code": 120,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "평정심"
+                },
+                {
+                    "Skill_Code": 139,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "관리능력"
+                },
+                {
+                    "Skill_Code": 116,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "친화력"
+                },
+                {
+                    "Skill_Code": 151,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "전략적"
+                },
+                {
+                    "Skill_Code": 119,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "판단력"
+                },
+                {
+                    "Skill_Code": 129,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "호기심"
+                },
+                {
+                    "Skill_Code": 118,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "팀워크"
+                },
+                {
+                    "Skill_Code": 115,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "추진력"
+                },
+                {
+                    "Skill_Code": 130,
+                    "Skill_Type_Code": 2,
+                    "Skill_Name": "효율성"
+                }
+            ]
+        }
+    ]
+}

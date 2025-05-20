@@ -172,9 +172,13 @@ function appendMessage(text, sender) {
   </style>
 </head>
 <script>
+  var process = ""
+  var count = 0
   function sendQuickmessage(text) {
     const inputField = document.getElementById('user-input');
     inputField.value = text;
+    process=''
+    count=0
     sendMessage();
   }
   function sendMessage() {
@@ -235,23 +239,105 @@ function appendMessage(text, sender) {
       }
     }
 
+        jobList = ["게임개발자","네트워크엔지니어","데이터사이언티스트","데이터엔지니어","백엔드개발자","보안엔지니어",
+    "블록체인개발자","소프트웨어개발자","시스템엔지니어","앱개발자","웹개발자","웹퍼블리셔","클라우드엔지니어",
+    "프론트엔드개발자","하드웨어개발자","AIML엔지니어","DBA","IT컨설팅","QA"]
     function getBotResponse(userMessage) {
+      document.cookie = "job=value; path=/; domain=localhost; max-age=0";
       let botMessage = '';
-      if (userMessage.includes('안녕하세요')) {
-        botMessage = '안녕하세요! 어떻게 도와드릴까요?';
-      } else if (userMessage.includes('날씨')) {
-        botMessage = '오늘의 날씨는 맑고 기온은 22도입니다.';
+      const job = getCookie('job');
+      if (job == null){
+        if(jobList.includes(userMessage)){
+          setCookie('job', userMessage, 60, '127.0.0.1', true);
+          botMessage = '직업이 선택되었습니다! 원하시는 서비스를 선택해주세요~'
+          appendMessage(botMessage, 'bot');
+          return
+        }
+        botMessage = '직업이 선택되지 않았습니다. 직업을 입력하여 주세요 JOBLIST : '+jobList.toString()
+        
+        appendMessage(botMessage, 'bot');
+        return;
+      }
+      if(userMessage.includes('처음으로')){
+        count=0
+        process = ""
+        appendMessage("원하시는 서비스를 선택해주세요~","bot")
+        return
+      }
+      if (userMessage.includes('1분 자기소개')||process=='1분 자기소개') {
+        if(!userMessage.includes('1분 자기소개')){
+          postQuestion(userMessage,job)
+          process=""
+          return 
+        }
+        process = "1분 자기소개"
+        botMessage = '1분 자기소개입니다. 메세지로 자기소개를 쓰시면 평가가 시작됩니다! 나가기("처음으로")';
+      } else if (userMessage.includes('면접 평가')||process=='면접 평가') {
+        if(!userMessage.includes("면접 평가")){
+          appendMessage("검사중입니다...","bot")
+          count= count +1
+          postQuestion(userMessage,job)
+          return
+        }
+        process="면접 평가"
+         botMessage = '면접 평가입니다. 그에 맞게 답을 입력하세요 나가기("처음으로")';
+          getQuestion(job);
       } else if (userMessage.includes('맞춤법 검사')) {
+        botMessage = '맞춤법 검사기로 이동합니다';
         location.replace("/spell_ck")
       } else {
-        botMessage = '저는 그걸 잘 모르겠어요. 다른 질문을 해 주세요.';
+        botMessage = '저는 그걸 잘 모르겠어요. 아래에 서비스를 선택해주세요';
       }
       appendMessage(botMessage, 'bot');
     }
-
+    function postQuestion(text,job){
+      fetch('/chatbot/',{
+            method:"POST",
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRFToken': getCookie('csrftoken')
+        },
+        body: JSON.stringify({
+            text: text,
+            job: job,
+            count: count,
+          })
+        })
+        .then(response => response.json())
+        .then(data => {
+          appendMessage(data.response, "bot");
+          getQuestion(job)
+        })
+        .catch(error => {
+          console.error("에러 발생:", error);
+          appendMessage("질문을 받아오는 데 실패했습니다.", "bot");
+        });
+    }
+    function getQuestion(job){
+      fetch('/chatbot/',{
+            method:"POST",
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRFToken': getCookie('csrftoken')
+        },
+        body: JSON.stringify({
+            text: "질문",
+            job: job,
+            count: count,
+          })
+        })
+        .then(response => response.json())
+        .then(data => {
+          appendMessage(data.response, "bot");
+        })
+        .catch(error => {
+          console.error("에러 발생:", error);
+          appendMessage("질문을 받아오는 데 실패했습니다.", "bot");
+        });
+    }
     document.addEventListener('DOMContentLoaded', function () {
       const inputField = document.getElementById('user-input');
-      inputField.addEventListener('keydown', function (event) {
+      inputField.addEventListener('keyup', function (event) {
         if (event.key === 'Enter') {
           event.preventDefault();
           sendMessage();
@@ -302,6 +388,25 @@ function appendMessage(text, sender) {
         }
       }
       return cookieValue;
+    }
+    function setCookie(cookieName, value, exMinutes, domain, secureBool) {
+      const exdate = new Date();
+      exdate.setTime(exdate.getTime() + (exMinutes * 60 * 1000));
+      let cookieValue = encodeURIComponent(value) + "; path=/;";
+      
+      if (exMinutes) {
+          cookieValue += " expires=" + exdate.toUTCString() + ";";
+      }
+
+      if (domain) {
+          cookieValue += " domain=" + domain + ";";
+      }
+
+      if (secureBool === true) {
+          cookieValue += " secure;";
+      }
+
+      document.cookie = cookieName + "=" + cookieValue;
     }
   </script>
 </body>
