@@ -3,32 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>맞춤법 검사기</title>
+  <title>챗봇</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
   <style>
-    body {
+
+      body {
       margin: 0;
       padding: 0;
       background: radial-gradient(circle at center, #000428, #004e92);
       color: white;
-      font-family: 'Noto Sans KR', sans-serif;
+      font-family: 'Malgun Gothic', '맑은 고딕', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       flex-direction: column;
+      align-items: center;
+      min-height: 150vh;
+      padding-top: 170px;
     }
 
-    .login-btn {
+    button {
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+
+    .login-btn, #save-chat-btn {
       position: fixed;
       top: 20px;
       right: 20px;
-      padding: 10px 20px;
       background-color: #007bff;
       color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
+      padding: 10px 20px;
       z-index: 1000;
     }
 
@@ -36,109 +42,200 @@
       top: 70px;
     }
 
-    #go-chat-btn {
-      top: 120px;
+    #save-chat-btn:hover {
+      background-color: #0056b3;
     }
 
-    .spell-check-wrapper {
+    .chat-container {
+     width: 100%;
+     max-width: 600px;
+     height: 60vh;
+     display: flex;
+    flex-direction: column;
+
+    background-color: #ffffff;
+    color: #0056b3;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px #0056b3;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+    .chat-box {
+      fiex: 1;
+      height: 400px;
+      overflow-y: auto;
+      margin-bottom: 20px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      border: 1px solid #ddd;
       display: flex;
+      flex-direction: column;
+      gap: 12px;
+      color: #000;
+    }
+
+    .chat-box .message {
+      max-width: 70%;
+      padding: 12px 18px;
+      border-radius: 16px;
+      font-size: 30px;
+      line-height: 1.5;
+      box-shadow: 0 4px 8px #0056b3;
+      word-break: break-word;
+    }
+
+    .message.user {
+      background-color: #5D9CEC;
+      color: white;
+      align-self: flex-end;
+      border-bottom-right-radius: 0;
+    }
+
+    .message.bot {
+      background-color: #FFB6C1;
+      color: black;
+      align-self: flex-start;
+      border-bottom-left-radius: 0;
+    }
+
+    .chat-input {
+      display: flex;
+    }
+
+    .chat-input textarea {
+      flex: 1;
+      resize: vertical;
+      min-height: 50px;
+      max-height: 200px;
+      padding: 10px;
+      font-size: 30px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      color: #0056b3;
+    }
+
+    .chat-input button {
+      margin-left: 10px;
+      background-color: #007bff;
+      color: white;
+      padding: 10px;
+    }
+
+
+    .spell-check-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 40px;
       margin: 40px auto 0;
-      width: 95%;
-      max-width: 1400px;
-      justify-content: center;
+      width: 90%;
+      max-width: 1000px;
+      height: 60vh;
     }
 
     .spell-input-area,
     .spell-result-area {
-      flex: 1;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 20px;
+      border: 1px solid #ddd;
+      box-shadow: 0 2px 5px #0056b3;
+      color: #0056b3;
       display: flex;
       flex-direction: column;
-      background-color: #ffffff;
-      padding: 25px;
-      border-radius: 10px;
-      border: 1px solid #ddd;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      min-height: 300px;
-      color: #333;
+      height: 90%;
+  
     }
 
     .spell-input-area h3,
     .spell-result-area h3 {
       margin-top: 0;
       margin-bottom: 12px;
-      color: #333;
-      font-size: 20px;
+      color: #0056b3;
+      font-size: 24px;
       text-align: center;
     }
 
-    #spell-input {
-      width: 100%;
-      height: 250px;
-      font-size: 18px;
-      padding: 20px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      resize: vertical;
-      box-sizing: border-box;
-      line-height: 1.6;
+    .text-status, .error-status {
+      margin-top: 10px;
+      font-size: 16px;
+      text-align: right;
     }
 
-    #char-count {
-      text-align: right;
-      margin-top: 5px;
-      color: #555;
-      font-size: 14px;
+
+    #spell-input {
+      width: 100%;
+      height: 100%;
+      font-size: 20px;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      resize: none;
+      box-sizing: border-box;
+      line-height: 1.6;
+      color: #0056b3;
+      font-family: 'Malgun Gothic', '맑은 고딕', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+      background-color: #ffffff;
+    }
+
+    #spell-input::placeholder {
+      color: #0056b3;
+      opacity: 1;
+      font-size: 20px;
+      font-family: 'Malgun Gothic', '맑은 고딕', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
     }
 
     #spell-checker-btn {
-      margin-top: 10px;
-      padding: 6px 14px;
-      background-color: #0056b3;
-      border: none;
-      color: white;
-      border-radius: 5px;
-      font-size: 14px;
-      cursor: pointer;
+      margin-top: 5px;
       align-self: center;
+      background-color: #0056b3;
+      color: white;
+      padding: 8px 16px;
+      font-size: 16px;
     }
 
     #spell-result {
-      background-color: #f9f9f9;
+      background-color: #ffffff;
       padding: 12px;
-      min-height: 200px;
+      height: calc(100% - 60px);
       border: 1px solid #ccc;
       border-radius: 6px;
-      font-size: 18px;
-      color: #333;
+      font-size: 20px;
+      color: #0056b3;
       overflow-y: auto;
       white-space: pre-wrap;
     }
   </style>
 </head>
+
 <body>
 
   {% if user.is_authenticated %}
-    <button class="login-btn" onclick="window.location.href='{% url 'account:logout' %}'">로그아웃</button>
-    <button id="save-chat-btn" class="login-btn" style="top: 70px;" onclick="saveChat()">저장</button>
-    <button id="go-chat-btn" class="login-btn" style="top: 120px;" onclick="window.location.href='/chatbot/'">챗봇</button>
+    <button class="login-btn" onclick="location.href='{% url 'account:logout' %}'">로그아웃</button>
+    <button id="save-chat-btn">저장</button>
   {% else %}
-    <button class="login-btn" onclick="window.location.href='{% url 'account:login' %}'">로그인</button>
+    <button class="login-btn" onclick="location.href='{% url 'account:login' %}'">로그인</button>
   {% endif %}
+
 
   <div class="spell-check-wrapper">
     <div class="spell-input-area">
-      <h3>입력</h3>
-      <form method="post">
+      <h3>내용 입력</h3>
+      <form method="POST" style="height: 100%;">
         {% csrf_token %}
-        <textarea name="text" id="spell-input" placeholder="검사할 문장을 입력하세요...">{{ user_input }}</textarea>
-        <div id="char-count">0자</div>
-        <button type="submit" id="spell-checker-btn">검사하기</button>  
+        <textarea name='text' id="spell-input" placeholder="검사할 문장을 입력하세요..."></textarea>
+        <button type="submit"id="spell-checker-btn">검사하기</button>
       </form>
+      <div class="text-status">
+        <span id="char-byte-count">0/15000(글자수) | 0/30000(byte)</span>
+      </div>
     </div>
     <div class="spell-result-area">
-      <h3>결과</h3>
-      <div id="spell-result">
+      <h3>맞춤법 검사</h3>
+      <div id="spell-result"> 
         {% if messages %}
           <ul>
             {% for message in messages %}
@@ -147,66 +244,102 @@
           </ul>
         {% endif %}
       </div>
+      <div class="error-status">
+        <span id="error-count">맞춤법 오류 0개</span>
+      </div>
     </div>
-  </div>
 
   <script>
-    // 저장 함수
-    function saveChat() {
-      const content = document.getElementById('spell-input').value;
-      if (!content.trim()) {
-        alert('저장할 내용이 없습니다.');
-        return;
-      }
 
-      fetch('/save_spellcheck/', {
+    function appendMessage(text, sender) {
+      const chatBox = document.getElementById('chat-box');
+      if (!chatBox) return;
+
+      const messageDiv = document.createElement('div');
+      messageDiv.classList.add('message', sender);
+      messageDiv.textContent = text;
+      chatBox.appendChild(messageDiv);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function sendMessage() {
+      const userInput = document.getElementById('user-input');
+      const message = userInput.value.trim();
+      if (message !== '') {
+        appendMessage(message, 'user');
+        userInput.value = '';
+        setTimeout(() => getBotResponse(message), 1000);
+      }
+    }
+
+    function getBotResponse(msg) {
+      let res = '저는 그걸 잘 모르겠어요. 다른 질문을 해 주세요.';
+      if (msg.includes('안녕하세요')) res = '안녕하세요! 어떻게 도와드릴까요?';
+      else if (msg.includes('날씨')) res = '오늘의 날씨는 맑고 기온은 22도입니다.';
+      else if (msg.includes('종료')) res = '챗봇을 종료합니다. 감사합니다!';
+      appendMessage(res, 'bot');
+    }
+
+    function saveChatHistory() {
+      const chatBox = document.getElementById('chat-box');
+      const messages = chatBox.querySelectorAll('.message');
+      const chatData = Array.from(messages).map(msg => ({
+        sender: msg.classList.contains('user') ? 'user' : 'bot',
+        message: msg.textContent
+      }));
+
+      fetch('/save_message/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'X-CSRFToken': getCookie('csrftoken')
         },
-        body: JSON.stringify({ text: content })
+        body: JSON.stringify({ messages: chatData })
       })
-      .then(res => {
-        if (!res.ok) throw new Error('저장 실패');
-        return res.json();
-      })
-      .then(data => {
-        alert('내용이 저장되었습니다.');
-      })
-      .catch(err => {
-        alert('저장 중 오류 발생: ' + err.message);
-      });
+      .then(res => res.json())
+      .then(() => alert('채팅이 저장되었습니다.'))
+      .catch(err => alert('저장 실패: ' + err));
     }
 
-    // CSRF 토큰 가져오기
     function getCookie(name) {
-      let cookieValue = null;
-      if (document.cookie && document.cookie !== '') {
-        const cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-          const cookie = cookies[i].trim();
-          if (cookie.substring(0, name.length + 1) === (name + '=')) {
-            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-            break;
-          }
+      const cookies = document.cookie.split(';').map(c => c.trim());
+      for (const cookie of cookies) {
+        if (cookie.startsWith(name + '=')) {
+          return decodeURIComponent(cookie.split('=')[1]);
         }
       }
-      return cookieValue;
+      return null;
     }
 
-    // 실시간 글자수 표시
-    const textarea = document.getElementById('spell-input');
-    const charCount = document.getElementById('char-count');
+    document.addEventListener('DOMContentLoaded', () => {
+      const inputField = document.getElementById('user-input');
+      if (inputField) {
+        inputField.addEventListener('keydown', e => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            sendMessage();
+          }
+        });
+      }
 
-    function updateCharCount() {
-      const length = textarea.value.length;
-      charCount.textContent = `${length}자`;
-    }
+      const saveBtn = document.getElementById('save-chat-btn');
+      if (saveBtn) {
+        saveBtn.addEventListener('click', saveChatHistory);
+      }
 
-    updateCharCount(); // 초기 표시
-    textarea.addEventListener('input', updateCharCount);
+      const spellInput = document.getElementById('spell-input');
+      const charByteCountSpan = document.getElementById('char-byte-count');
+      const spellCheckBtn = document.getElementById('spell-checker-btn');
+      const errorCountSpan = document.getElementById('error-count');
+
+      spellInput.addEventListener('input', () => {
+        const text = spellInput.value;
+        const charCount = text.length;
+        const byteCount = new TextEncoder().encode(text).length;
+        charByteCountSpan.textContent = `${charCount}/15000(글자수) | ${byteCount}/30000(byte)`;
+      });
+
+    });
   </script>
-
 </body>
 </html>

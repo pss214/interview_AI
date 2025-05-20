@@ -126,288 +126,255 @@
     #save-chat-btn:hover {
       background-color: #0056b3;
     }
+
     .chat-custom-menu {
-     display: grid;
-     grid-template-columns: repeat(3, 1fr); /* 3열 그리드 */
-     gap: 10px;
-    margin: 10px 0;
-  }
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 10px 0;
+    }
 
-.chat-custom-menu button {
-  padding: 10px;
-  background-color: #0056b3;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  }
-function sendQuickmessage(text) {
-  const inputField = document.getElementById('user-input');
-  inputField.value = text;  
-  sendMessage();           
-}
-function sendMessage() {
-  const userInput = document.getElementById('user-input');
-  const userMessage = userInput.value.trim();
-  if (userMessage !== '') {
-    appendMessage(userMessage, 'user');  
-    userInput.value = '';
+    .chat-custom-menu button {
+      padding: 10px;
+      background-color: #0056b3;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
 
-    setTimeout(() => {
-      getBotResponse(userMessage);       
-    }, 500); // 0.5초 후 응답
-  }
-}
-function appendMessage(text, sender) {
-  const chatBox = document.getElementById('chat-box');
-  const messageDiv = document.createElement('div');
-  messageDiv.classList.add('message', sender);
-  messageDiv.textContent = text;
-  chatBox.appendChild(messageDiv);
-  chatBox.scrollTop = chatBox.scrollHeight; // =
-}
+    .message-wrapper {
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 10px;
+    }
 
+    .message-wrapper.user {
+      justify-content: flex-end;
+    }
+
+    .message-wrapper.bot {
+      justify-content: flex-start;
+    }
+
+    .message-icon {
+      width: 40px;
+      height: auto;
+     
+    }
   </style>
 </head>
+<body>
+
+{% if user.is_authenticated %}
+  <button class="login-btn" onclick="window.location.href='{% url 'account:logout' %}'">로그아웃</button>
+  <button id="save-chat-btn" class="login-btn">저장</button>
+{% else %}
+  <button class="login-btn" onclick="window.location.href='{% url 'account:login' %}'">로그인</button>
+{% endif %}
+
+<div class="chat-container">
+  <div class="chat-box" id="chat-box"></div>
+
+  <div class="chat-custom-menu">
+    <button onclick="sendQuickmessage('면접 평가')">면접 평가</button>
+    <button onclick="sendQuickmessage('1분 자기소개')">자기소개</button>
+    <button onclick="sendQuickmessage('맞춤법 검사')">맞춤법 검사</button>
+  </div>
+
+  <div class="chat-input">
+    <textarea id="user-input" placeholder="메시지를 입력하세요..."></textarea>
+    <button onclick="sendMessage()">전송</button>
+  </div>
+</div>
+
 <script>
-  var process = ""
-  var count = 0
+  let process = "";
+  let count = 0;
+  const jobList = ["게임개발자", "네트워크엔지니어", "데이터사이언티스트", "데이터엔지니어", "백엔드개발자", "보안엔지니어", "블록체인개발자", "소프트웨어개발자", "시스템엔지니어", "앱개발자", "웹개발자", "웹퍼블리셔", "클라우드엔지니어", "프론트엔드개발자", "하드웨어개발자", "AIML엔지니어", "DBA", "IT컨설팅", "QA"];
+
   function sendQuickmessage(text) {
     const inputField = document.getElementById('user-input');
     inputField.value = text;
-    process=''
-    count=0
+    process = '';
+    count = 0;
     sendMessage();
   }
+
   function sendMessage() {
     const userInput = document.getElementById('user-input');
     const userMessage = userInput.value.trim();
     if (userMessage !== '') {
       appendMessage(userMessage, 'user');
       userInput.value = '';
-
       setTimeout(() => {
         getBotResponse(userMessage);
-      }, 500); // 0.5초 후 응답
+      }, 500);
     }
   }
-</script>
-<body>
 
-  {% if user.is_authenticated %}
-    <button class="login-btn" onclick="window.location.href='{% url 'account:logout' %}'">로그아웃</button>
-    <button id="save-chat-btn" class="login-btn">저장</button>
-  {% else %}
-    <button class="login-btn" onclick="window.location.href='{% url 'account:login' %}'">로그인</button>
-  {% endif %}
+  function appendMessage(text, sender) {
+    const chatBox = document.getElementById('chat-box');
+    const messageWrapper = document.createElement('div');
+    messageWrapper.classList.add('message-wrapper', sender);
 
-  <div class="chat-container">
-    <div class="chat-box" id="chat-box"></div>
+    const icon = document.createElement('img');
+    icon.classList.add('message-icon');
+    icon.src = sender === 'user' ? '/static/image/human.png' : '/static/image/ai.png';
+    icon.alt = sender === 'user' ? '사용자' : '챗봇';
 
-    <div class="chat-custom-menu">
-    <button onclick="sendQuickmessage('면접 평가')">면접 평가</button>
-    <button onclick="sendQuickmessage('1분 자기소개')">자기소개</button>
-    <button onclick="sendQuickmessage('맞춤법 검사')"> 맞춤법 검사</button>
-  </div>
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('message', sender);
+    messageDiv.textContent = text;
 
-    <div class="chat-input">
-      <textarea id="user-input" placeholder="메시지를 입력하세요..."></textarea>
-      <button onclick="sendMessage()">전송</button>
-    </div>
-  </div>
-  <script>
-    function appendMessage(text, sender) {
-      const chatBox = document.getElementById('chat-box');
-      const messageDiv = document.createElement('div');
-      messageDiv.classList.add('message', sender);
-      messageDiv.textContent = text;
-      chatBox.appendChild(messageDiv);
-      chatBox.scrollTop = chatBox.scrollHeight;
+    if (sender === 'user') {
+      messageWrapper.appendChild(messageDiv);
+      messageWrapper.appendChild(icon);
+    } else {
+      messageWrapper.appendChild(icon);
+      messageWrapper.appendChild(messageDiv);
     }
 
-    function sendMessage() {
-      const userInput = document.getElementById('user-input');
-      const userMessage = userInput.value.trim();
-      if (userMessage !== '') {
-        appendMessage(userMessage, 'user');
-        userInput.value = '';
-        setTimeout(() => {
-          getBotResponse(userMessage);
-        }, 1000);
-      }
-    }
+    chatBox.appendChild(messageWrapper);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
 
-        jobList = ["게임개발자","네트워크엔지니어","데이터사이언티스트","데이터엔지니어","백엔드개발자","보안엔지니어",
-    "블록체인개발자","소프트웨어개발자","시스템엔지니어","앱개발자","웹개발자","웹퍼블리셔","클라우드엔지니어",
-    "프론트엔드개발자","하드웨어개발자","AIML엔지니어","DBA","IT컨설팅","QA"]
-    function getBotResponse(userMessage) {
-      document.cookie = "job=value; path=/; domain=localhost; max-age=0";
-      let botMessage = '';
-      const job = getCookie('job');
-      if (job == null){
-        if(jobList.includes(userMessage)){
-          setCookie('job', userMessage, 60, '127.0.0.1', true);
-          botMessage = '직업이 선택되었습니다! 원하시는 서비스를 선택해주세요~'
-          appendMessage(botMessage, 'bot');
-          return
-        }
-        botMessage = '직업이 선택되지 않았습니다. 직업을 입력하여 주세요 JOBLIST : '+jobList.toString()
-        
+  function getBotResponse(userMessage) {
+    document.cookie = "job=value; path=/; domain=localhost; max-age=0";
+    let botMessage = '';
+    const job = getCookie('job');
+    if (job == null) {
+      if (jobList.includes(userMessage)) {
+        setCookie('job', userMessage, 60, '127.0.0.1', true);
+        botMessage = '직업이 선택되었습니다! 원하시는 서비스를 선택해주세요~';
         appendMessage(botMessage, 'bot');
         return;
       }
-      if(userMessage.includes('처음으로')){
-        count=0
-        process = ""
-        appendMessage("원하시는 서비스를 선택해주세요~","bot")
-        return
-      }
-      if (userMessage.includes('1분 자기소개')||process=='1분 자기소개') {
-        if(!userMessage.includes('1분 자기소개')){
-          postQuestion(userMessage,job)
-          process=""
-          return 
-        }
-        process = "1분 자기소개"
-        botMessage = '1분 자기소개입니다. 메세지로 자기소개를 쓰시면 평가가 시작됩니다! 나가기("처음으로")';
-      } else if (userMessage.includes('면접 평가')||process=='면접 평가') {
-        if(!userMessage.includes("면접 평가")){
-          appendMessage("검사중입니다...","bot")
-          count= count +1
-          postQuestion(userMessage,job)
-          return
-        }
-        process="면접 평가"
-         botMessage = '면접 평가입니다. 그에 맞게 답을 입력하세요 나가기("처음으로")';
-          getQuestion(job);
-      } else if (userMessage.includes('맞춤법 검사')) {
-        botMessage = '맞춤법 검사기로 이동합니다';
-        location.replace("/spell_ck")
-      } else {
-        botMessage = '저는 그걸 잘 모르겠어요. 아래에 서비스를 선택해주세요';
-      }
+      botMessage = '직업이 선택되지 않았습니다. 직업을 입력하여 주세요 JOBLIST : ' + jobList.toString();
       appendMessage(botMessage, 'bot');
+      return;
     }
-    function postQuestion(text,job){
-      fetch('/chatbot/',{
-            method:"POST",
-            headers: {
-              'Content-Type': 'application/json',
-              'X-CSRFToken': getCookie('csrftoken')
-        },
-        body: JSON.stringify({
-            text: text,
-            job: job,
-            count: count,
-          })
-        })
-        .then(response => response.json())
-        .then(data => {
-          appendMessage(data.response, "bot");
-          getQuestion(job)
-        })
-        .catch(error => {
-          console.error("에러 발생:", error);
-          appendMessage("질문을 받아오는 데 실패했습니다.", "bot");
-        });
-    }
-    function getQuestion(job){
-      fetch('/chatbot/',{
-            method:"POST",
-            headers: {
-              'Content-Type': 'application/json',
-              'X-CSRFToken': getCookie('csrftoken')
-        },
-        body: JSON.stringify({
-            text: "질문",
-            job: job,
-            count: count,
-          })
-        })
-        .then(response => response.json())
-        .then(data => {
-          appendMessage(data.response, "bot");
-        })
-        .catch(error => {
-          console.error("에러 발생:", error);
-          appendMessage("질문을 받아오는 데 실패했습니다.", "bot");
-        });
-    }
-    document.addEventListener('DOMContentLoaded', function () {
-      const inputField = document.getElementById('user-input');
-      inputField.addEventListener('keyup', function (event) {
-        if (event.key === 'Enter') {
-          event.preventDefault();
-          sendMessage();
-        }
-      });
 
-      const saveBtn = document.getElementById('save-chat-btn');
-      if (saveBtn) {
-        saveBtn.addEventListener('click', saveChatHistory);
+    if (userMessage.includes('처음으로')) {
+      count = 0;
+      process = "";
+      appendMessage("원하시는 서비스를 선택해주세요~", "bot");
+      return;
+    }
+
+    if (userMessage.includes('1분 자기소개') || process === '1분 자기소개') {
+      if (!userMessage.includes('1분 자기소개')) {
+        postQuestion(userMessage, job);
+        process = "";
+        return;
+      }
+      process = "1분 자기소개";
+      botMessage = '1분 자기소개입니다. 메세지로 자기소개를 쓰시면 평가가 시작됩니다! 나가기("처음으로")';
+    } else if (userMessage.includes('면접 평가') || process === '면접 평가') {
+      if (!userMessage.includes("면접 평가")) {
+        appendMessage("검사중입니다...", "bot");
+        count += 1;
+        postQuestion(userMessage, job);
+        return;
+      }
+      process = "면접 평가";
+      botMessage = '면접 평가입니다. 그에 맞게 답을 입력하세요 나가기("처음으로")';
+      getQuestion(job);
+    } else if (userMessage.includes('맞춤법 검사')) {
+      botMessage = '맞춤법 검사기로 이동합니다';
+      location.replace("/spell_ck");
+    } else {
+      botMessage = '저는 그걸 잘 모르겠어요. 아래에 서비스를 선택해주세요';
+    }
+    appendMessage(botMessage, 'bot');
+  }
+
+  function postQuestion(text, job) {
+    fetch('/chatbot/', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': getCookie('csrftoken')
+      },
+      body: JSON.stringify({ text, job, count })
+    })
+    .then(res => res.json())
+    .then(data => {
+      appendMessage(data.response, "bot");
+      getQuestion(job);
+    })
+    .catch(error => {
+      console.error("에러 발생:", error);
+      appendMessage("질문을 받아오는 데 실패했습니다.", "bot");
+    });
+  }
+
+  function getQuestion(job) {
+    fetch('/chatbot/', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': getCookie('csrftoken')
+      },
+      body: JSON.stringify({ text: "질문", job, count })
+    })
+    .then(res => res.json())
+    .then(data => appendMessage(data.response, "bot"))
+    .catch(error => {
+      console.error("에러 발생:", error);
+      appendMessage("질문을 받아오는 데 실패했습니다.", "bot");
+    });
+  }
+
+  function saveChatHistory() {
+    const chatBox = document.getElementById('chat-box');
+    const messages = chatBox.querySelectorAll('.message');
+    const chatData = Array.from(messages).map(msg => ({
+      sender: msg.classList.contains('user') ? 'user' : 'bot',
+      message: msg.textContent
+    }));
+
+    fetch('/save_message/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': getCookie('csrftoken')
+      },
+      body: JSON.stringify({ messages: chatData })
+    })
+    .then(res => res.json())
+    .then(() => alert('채팅이 저장되었습니다.'))
+    .catch(err => alert('저장 실패: ' + err));
+  }
+
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  }
+
+  function setCookie(cookieName, value, exMinutes, domain, secureBool) {
+    const exdate = new Date();
+    exdate.setTime(exdate.getTime() + (exMinutes * 60 * 1000));
+    let cookieStr = `${cookieName}=${encodeURIComponent(value)}; path=/; expires=${exdate.toUTCString()}`;
+    if (domain) cookieStr += `; domain=${domain}`;
+    if (secureBool) cookieStr += `; secure`;
+    document.cookie = cookieStr;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('user-input').addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        sendMessage();
       }
     });
 
-    function saveChatHistory() {
-      const chatBox = document.getElementById('chat-box');
-      const messages = chatBox.querySelectorAll('.message');
-      const chatData = [];
-
-      messages.forEach(msg => {
-        chatData.push({
-          sender: msg.classList.contains('user') ? 'user' : 'bot',
-          message: msg.textContent
-        });
-      });
-
-      fetch('/save_message/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-CSRFToken': getCookie('csrftoken')
-        },
-        body: JSON.stringify({ messages: chatData })
-      })
-      .then(res => res.json())
-      .then(data => alert('채팅이 저장되었습니다.'))
-      .catch(err => alert('저장 실패: ' + err));
-    }
-
-    function getCookie(name) {
-      let cookieValue = null;
-      if (document.cookie && document.cookie !== '') {
-        const cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-          const cookie = cookies[i].trim();
-          if (cookie.substring(0, name.length + 1) === (name + '=')) {
-            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-            break;
-          }
-        }
-      }
-      return cookieValue;
-    }
-    function setCookie(cookieName, value, exMinutes, domain, secureBool) {
-      const exdate = new Date();
-      exdate.setTime(exdate.getTime() + (exMinutes * 60 * 1000));
-      let cookieValue = encodeURIComponent(value) + "; path=/;";
-      
-      if (exMinutes) {
-          cookieValue += " expires=" + exdate.toUTCString() + ";";
-      }
-
-      if (domain) {
-          cookieValue += " domain=" + domain + ";";
-      }
-
-      if (secureBool === true) {
-          cookieValue += " secure;";
-      }
-
-      document.cookie = cookieName + "=" + cookieValue;
-    }
-  </script>
+    const saveBtn = document.getElementById('save-chat-btn');
+    if (saveBtn) saveBtn.addEventListener('click', saveChatHistory);
+  });
+</script>
 </body>
 </html>
