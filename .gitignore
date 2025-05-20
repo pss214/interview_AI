@@ -5,6 +5,8 @@ account/__pycache__/
 chatbot/__pycache__/
 account/migrations/
 chatbot/migrations/
+spell_check/__pycache__/
+spell_check/migrations/
 local_settings.py
 db.sqlite3
 db.sqlite3-journal

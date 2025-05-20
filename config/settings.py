@@ -40,7 +40,8 @@ INSTALLED_APPS = [
 
     ##myapp
     'account',
-    'chatbot'
+    'chatbot',
+    'spell_check',
 ]
 
 MIDDLEWARE = [
