@@ -55,7 +55,7 @@ def signup_view(request):
                 user = User.objects.create_user(username=email, password=password)
                 user.save()
                 messages.success(request, '회원가입이 완료되었습니다. 로그인 해주세요.')
-                return redirect('login')
+                return redirect('account:login')
             except Exception as e:
                 print(e)
                 messages.error(request, '회원가입에 실패했습니다. 다시 시도해주세요.')
