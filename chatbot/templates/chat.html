@@ -274,7 +274,7 @@
 
     if (userMessage.includes('1분 자기소개') || process === '1분 자기소개') {
       if (!userMessage.includes('1분 자기소개')) {
-        postQuestion(userMessage, job);
+        postQuestion(userMessage, job,false);
         process = "";
         return;
       }
@@ -284,7 +284,7 @@
       if (!userMessage.includes("면접 평가")) {
         appendMessage("검사중입니다...", "bot");
         count += 1;
-        postQuestion(userMessage, job);
+        postQuestion(userMessage, job,true);
         return;
       }
       process = "면접 평가";
@@ -299,18 +299,19 @@
     appendMessage(botMessage, 'bot');
   }
 
-  function postQuestion(text, job) {
+  function postQuestion(text, job,isinterview) {
     fetch('/chatbot/', {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
         'X-CSRFToken': getCookie('csrftoken')
       },
-      body: JSON.stringify({ text, job, count })
+      body: JSON.stringify({ text:text, job:job, count:count })
     })
     .then(res => res.json())
     .then(data => {
       appendMessage(data.response, "bot");
+      if(!isinterview)return;
       getQuestion(job);
     })
     .catch(error => {
@@ -326,7 +327,7 @@
         'Content-Type': 'application/json',
         'X-CSRFToken': getCookie('csrftoken')
       },
-      body: JSON.stringify({ text: "질문", job, count })
+      body: JSON.stringify({ text: "질문", job:job, count:count })
     })
     .then(res => res.json())
     .then(data => appendMessage(data.response, "bot"))
@@ -357,11 +358,20 @@
     .catch(err => alert('저장 실패: ' + err));
   }
 
-  function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-  }
+  function getCookie(cookieName) {
+    cookieName = cookieName + '=';
+    let cookieData = document.cookie;
+    let start = cookieData.indexOf(cookieName);
+    let cookieValue = '';
+    if (start != -1) {
+        start += cookieName.length;
+        let end = cookieData.indexOf(';', start);
+        if (end == -1) end = cookieData.length;
+        cookieValue = cookieData.substring(start, end);
+    }
+    
+    return decodeURIComponent(cookieValue);
+}
 
   function setCookie(cookieName, value, exMinutes, domain, secureBool) {
     const exdate = new Date();
